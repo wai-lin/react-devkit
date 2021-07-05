@@ -1,0 +1,52 @@
+@layer base {
+  [data-ui-switch-label] {
+    @apply relative grid place-items-center z-0;
+  }
+
+  [data-ui-switch-btn] {
+    --switch-controller-size: 1rem;
+
+    @apply inline-block relative cursor-pointer select-none;
+    @apply bg-gray-300 rounded-full p-1 transition-all;
+    @apply min-w-[50px] min-h-[18px];
+    outline: 0;
+
+    &:after {
+      @apply left-0 relative block;
+      @apply rounded-full bg-white shadow-sm;
+      @apply transition-all transform-gpu duration-100;
+      content: '';
+      width: var(--switch-controller-size);
+      height: var(--switch-controller-size);
+    }
+
+    &:active {
+      @apply pr-2;
+    }
+
+    &:active:after {
+      width: calc(var(--switch-controller-size) + 10%);
+    }
+  }
+
+  [data-ui-switch-input] {
+    /* visually hidden but still accessible */
+    @apply appearance-none outline-none border-none focus:outline-none;
+    @apply absolute whitespace-nowrap overflow-hidden;
+    @apply p-0 m-[-1px] h-[1px] w-[1px];
+    clip: rect(0, 0, 0, 0);
+    background-image: unset !important;
+
+    &:checked + [data-ui-switch-btn] {
+      @apply bg-current;
+    }
+
+    &:checked + [data-ui-switch-btn]:after {
+      left: calc(100% - var(--switch-controller-size));
+    }
+
+    &:focus + [data-ui-switch-btn] {
+      @apply ring-2 ring-offset-2 ring-current;
+    }
+  }
+}

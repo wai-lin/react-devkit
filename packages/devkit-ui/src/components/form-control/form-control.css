@@ -1,0 +1,7 @@
+@layer base {
+  [data-ui-form-control-switch],
+  [data-ui-form-control-radio],
+  [data-ui-form-control-checkbox] {
+    @apply flex items-center space-x-2;
+  }
+}

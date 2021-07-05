@@ -1,0 +1,30 @@
+{
+  "license": "ISC",
+  "author": "wailinaung",
+  "name": "devkit",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "ui:playground": "npm run playground --workspace=packages/devkit-ui"
+  },
+  "keywords": [
+    "react kit",
+    "development kit"
+  ],
+  "workspaces": [
+    "./packages/*"
+  ],
+  "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.2.1",
+    "@tailwindcss/forms": "^0.3.3",
+    "@tailwindcss/line-clamp": "^0.2.1",
+    "@tailwindcss/typography": "^0.4.1",
+    "autoprefixer": "^10.2.6",
+    "postcss": "^8.2.13",
+    "postcss-import": "^14.0.2",
+    "postcss-nested": "^5.0.5",
+    "tailwindcss": "^2.2.4",
+    "tsdx": "^0.14.1"
+  }
+}

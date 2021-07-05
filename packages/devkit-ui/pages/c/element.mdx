@@ -1,0 +1,86 @@
+# Element
+
+## #Table of Contents
+
+import ToC from 'partials/ToC'
+
+<ToC>
+  <a data-toc-to="scroll-to-button">#Button</a>
+  <ToC>
+    <a data-toc-to="scroll-to-button--sample">#Sample</a>
+    <ToC>
+      <a data-toc-to="scroll-to-button--sample-code">#Code</a>
+    </ToC>
+    <a data-toc-to="scroll-to-button--styling">#Styling</a>
+    <ToC>
+      <a data-toc-to="scroll-to-button--styling-code">#Code</a>
+    </ToC>
+  </ToC>
+</ToC>
+
+---
+
+## #Button
+
+<a id="scroll-to-button" />
+
+import { ButtonSample } from 'examples/button'
+
+### #Sample<a id="scroll-to-button--sample"/>
+
+<ButtonSample />
+<a id="scroll-to-button--sample-code" />
+
+```tsx
+<Button
+  onClick={() => alert('clicked!')}
+  className="bg-blue-300"
+>
+  Click Me
+</Button>
+
+<Button.Circle
+  style={{ width: '40px', height: '40px' }}
+  onClick={() => alert('clicked!')}
+  className="bg-blue-300"
+>
+  🚀
+</Button.Circle>
+```
+
+---
+
+### #Styling
+
+<a id="scroll-to-button--styling" />
+
+import { ButtonStyling } from 'examples/button'
+
+<ButtonStyling />
+<a id="scroll-to-button--styling-code" />
+
+```tsx
+<!-- styling -->
+<Button className="bg-red-300 hover:bg-red-400 active:bg-red-300 focus:ring-red-400 dark:focus:ring-offset-gray-800">
+  Styled Button
+</Button>
+<Button className="rounded-full bg-red-300 hover:bg-red-400 active:bg-red-300 focus:ring-red-400 dark:focus:ring-offset-gray-800">
+  Rounded Button
+</Button>
+
+<!-- sizing -->
+<Button className="px-2 py-0 text-gray-800 bg-red-300 hover:bg-red-400 active:bg-red-300 focus:ring-red-400 dark:focus:ring-offset-gray-800">
+  Small Button
+</Button>
+<Button className="px-2 py-0 rounded-full text-gray-800 bg-red-300 hover:bg-red-400 active:bg-red-300 focus:ring-red-400 dark:focus:ring-offset-gray-800">
+  Small Rounded Button
+</Button>
+
+<!-- circle -->
+<Button.Circle className="w-12 h-12 bg-red-300 hover:bg-red-400 active:bg-red-300 focus:ring-red-400 dark:focus:ring-offset-gray-800">
+  🚀
+</Button.Circle>
+<Button.Circle style={{ width: '60px', height: '60px' }} className="bg-red-300 hover:bg-red-400 active:bg-red-300 focus:ring-red-400 dark:focus:ring-offset-gray-800">
+  🧨
+</Button.Circle>
+```
