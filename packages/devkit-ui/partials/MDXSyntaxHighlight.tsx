@@ -5,8 +5,8 @@ import clsx from 'clsx'
 // mdx
 import { MDXProvider } from '@mdx-js/react'
 import Highlight, { defaultProps } from 'prism-react-renderer'
-import darkTheme from 'prism-react-renderer/themes/nightOwl'
-import lightTheme from 'prism-react-renderer/themes/github'
+import darkTheme from 'prism-react-renderer/themes/oceanicNext'
+import lightTheme from 'prism-react-renderer/themes/vsLight'
 
 import { Button } from '../src/components/button/button'
 
@@ -19,16 +19,16 @@ const Code: FC<any & typeof Highlight> = ({ children, className }) => {
   const [theme, setTheme] = useState<'dark' | 'light'>('dark')
   const ThemeButton = () =>
     language ? (
-      <Button
+      <Button.Circle
         onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
         className={clsx(
-          'p-0 w-8 h-8 float-right rounded-full',
+          'w-8 h-8 float-right',
           'bg-indigo-400 hover:bg-indigo-300 active:bg-indigo-400',
           'focus:ring-0 focus:ring-offset-0',
         )}
       >
         {theme === 'dark' ? '🌙' : '🌕'}
-      </Button>
+      </Button.Circle>
     ) : null
   const CodeLineNumber = ({ lineNumber }: { lineNumber: number }) =>
     language ? (
@@ -52,7 +52,10 @@ const Code: FC<any & typeof Highlight> = ({ children, className }) => {
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre
-          className={clsx(className, 'whitespace-pre-wrap')}
+          className={clsx(
+            className,
+            'whitespace-pre-wrap border-2 border-gray-600',
+          )}
           style={{ ...style, padding: '20px' }}
         >
           <ThemeButton />

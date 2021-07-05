@@ -39,6 +39,13 @@ const SwitchStyling = () => {
           className="text-green-400"
           focusStyle={appContext.theme === 'dark' ? 'ring-offset-gray-800' : ''}
         />
+        <Switch.Toggle
+          isRect
+          checked={isChecked}
+          onChange={e => setIsChecked(e.target.checked)}
+          className="rounded text-blue-400"
+          focusStyle={appContext.theme === 'dark' ? 'ring-offset-gray-800' : ''}
+        />
       </div>
     </>
   )

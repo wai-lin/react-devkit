@@ -15,6 +15,7 @@ import clsx from 'clsx'
 // SwitchToggle
 interface ISwitchToggleProps {
   focusStyle?: string
+  isRect?: boolean
   checked: boolean
   onChange: ChangeEventHandler<HTMLInputElement>
 }
@@ -22,6 +23,7 @@ const SwitchToggle: FC<InputHTMLAttributes<HTMLInputElement> &
   ISwitchToggleProps> = ({
   id = '',
   className,
+  isRect = false,
   checked = false,
   onChange,
   'aria-label': ariaLabel = 'Toggle',
@@ -58,7 +60,11 @@ const SwitchToggle: FC<InputHTMLAttributes<HTMLInputElement> &
       <span
         data-ui-switch-btn
         id={`${switchId}-btn`}
-        className={clsx(className, focusState === 'focus' ? focusStyle : '')}
+        className={clsx(
+          className,
+          focusState === 'focus' ? focusStyle : '',
+          isRect ? 'rect' : '',
+        )}
         {...props}
       />
     </label>

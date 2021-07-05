@@ -27,6 +27,12 @@
     &:active:after {
       width: calc(var(--switch-controller-size) + 10%);
     }
+
+    &.rect {
+      &:after {
+        border-radius: 25%;
+      }
+    }
   }
 
   [data-ui-switch-input] {

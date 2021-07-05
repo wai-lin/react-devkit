@@ -29,4 +29,4 @@ const Checkbox: FC<HTMLAttributes<HTMLDivElement>> & IStaticComponents = ({
 Checkbox.Label = Label
 Checkbox.Input = CheckboxInput
 
-export { Checkbox, CheckboxInput }
+export { Checkbox }

@@ -19,7 +19,7 @@ const ButtonCircle: FC<HTMLAttributes<HTMLButtonElement>> = ({
   return (
     <Button
       aria-label={ariaLabel || ''}
-      className={clsx('p-0 rounded-full', className)}
+      className={clsx('p-0 rounded-full grid place-items-center', className)}
       {...props}
     />
   )

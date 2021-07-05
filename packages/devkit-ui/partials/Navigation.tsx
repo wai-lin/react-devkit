@@ -5,12 +5,9 @@ import { useRouter } from 'next/dist/client/router'
 import { Heading } from '../src/components/heading/heading'
 
 const components = [
-  { name: 'Typography', path: '/typography' },
   { name: 'Element', path: '/element' },
-  { name: 'Checkbox', path: '/checkbox' },
-  { name: 'Form Control', path: '/form-control' },
-  { name: 'Radio', path: '/radio' },
-  { name: 'Switch', path: '/switch' },
+  { name: 'Input', path: '/input' },
+  { name: 'Typography', path: '/typography' },
 ]
 
 const Navigation: FC<HTMLAttributes<HTMLElement>> = ({

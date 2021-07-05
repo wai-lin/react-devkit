@@ -22,7 +22,7 @@ const AppContext = createContext<IAppContext>({
 // App
 const App: FC<AppProps> = ({ Component, pageProps }) => {
   // theme
-  const [theme, setTheme] = useState<'light' | 'dark'>('dark')
+  const [theme, setTheme] = useState<'light' | 'dark'>('light')
   return (
     <AppContext.Provider value={{ theme, setTheme }}>
       <Head>
@@ -41,7 +41,7 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
             <Navigation className="flex-none" />
             <div
               id="main-content"
-              className="relative flex-auto mt-16 pt-4 pb-20 px-4 overflow-auto dark:bg-gray-800"
+              className="relative flex-auto mt-16 pt-8 pb-20 px-16 overflow-auto dark:bg-gray-800"
             >
               <WithMDXSyntaxHighlight>
                 <Component {...pageProps} />
