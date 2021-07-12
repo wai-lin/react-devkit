@@ -46,6 +46,13 @@ const ButtonStyling = () => {
       >
         🧨
       </Button.Circle>
+
+      <Button className="rounded-full" disabled>
+        Rounded Button
+      </Button>
+      <Button.Circle className="w-12 h-12" disabled>
+        🚀
+      </Button.Circle>
     </section>
   )
 }

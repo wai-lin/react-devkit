@@ -1,0 +1,78 @@
+# #Table of Contents
+
+import ToC from 'partials/ToC'
+
+<ToC>
+  <a data-toc-to="scroll-to-checkbox">#Checkbox</a>
+  <ToC>
+    <a data-toc-to="scroll-to-checkbox--sample">#Sample</a>
+    <ToC>
+      <a data-toc-to="scroll-to-checkbox--sample-code">#Code</a>
+    </ToC>
+    <a data-toc-to="scroll-to-checkbox--styling">#Styling</a>
+    <ToC>
+      <a data-toc-to="scroll-to-checkbox--styling-code">#Code</a>
+    </ToC>
+  </ToC>
+</ToC>
+
+---
+
+# #Checkbox
+
+<a id="scroll-to-checkbox" />
+
+### #Sample
+
+<a id="scroll-to-checkbox--sample" />
+
+import { CheckboxSample } from 'examples/checkbox.example'
+
+<CheckboxSample />
+<a id="scroll-to-checkbox--sample-code" />
+
+```tsx
+const [isChecked, setIsChecked] = useState(false)
+<Checkbox.Input id="checkbox-id" />
+<label htmlFor="checkbox-id">tick me</label>
+<Checkbox>
+  <Checkbox.Input
+    checked={isChecked}
+    onChange={e => setIsChecked(e.target.checked)}
+  />
+  <Checkbox.Label>is checked : {isChecked.toString()}</Checkbox.Label>
+</Checkbox>
+```
+
+---
+
+### #Styling
+
+<a id="scroll-to-checkbox--styling" />
+
+import { CheckboxStyling } from 'examples/checkbox.example'
+
+<CheckboxStyling />
+<a id="scroll-to-checkbox--styling-code" />
+
+```tsx
+<Checkbox>
+  <Checkbox.Input className="text-red-400" />
+  <Checkbox.Label>red check</Checkbox.Label>
+</Checkbox>
+
+<Checkbox>
+  <Checkbox.Input className="text-yellow-400" />
+  <Checkbox.Label>yellow check</Checkbox.Label>
+</Checkbox>
+
+<Checkbox>
+  <Checkbox.Input className="text-green-400" />
+  <Checkbox.Label>green check</Checkbox.Label>
+</Checkbox>
+
+<Checkbox>
+  <Checkbox.Input className="rounded-full text-blue-400" />
+  <Checkbox.Label>circle check</Checkbox.Label>
+</Checkbox>
+```

@@ -1,5 +1,6 @@
 import {
   ChangeEventHandler,
+  createContext,
   FC,
   HTMLAttributes,
   InputHTMLAttributes,
@@ -11,6 +12,8 @@ import { FormControl } from '../form-control/form-control'
 import { Label } from '../label/label'
 import uuid from '../../utils/uuid'
 import clsx from 'clsx'
+
+const SwitchContext = createContext<{ state: 'on' | 'off' }>({ state: 'off' })
 
 // SwitchToggle
 interface ISwitchToggleProps {
@@ -28,15 +31,23 @@ const SwitchToggle: FC<InputHTMLAttributes<HTMLInputElement> &
   onChange,
   'aria-label': ariaLabel = 'Toggle',
   focusStyle = '',
+  children,
   ...props
 }) => {
   const context = useContext(FormControl.Context)
   const [switchId, setSwitchId] = useState('')
   const [focusState, setFocusState] = useState<'focus' | 'blur'>('blur')
+  const [switchState, setSwitchState] = useState<'on' | 'off'>('off')
+
+  useEffect(() => {
+    setSwitchState(checked ? 'on' : 'off')
+  }, [checked])
+
   useEffect(() => {
     if (context.id === '' && id === '') setSwitchId(uuid())
     else setSwitchId(context.id || id)
   }, [context.id, id])
+
   // change size of the controller btn on render
   useEffect(() => {
     const switchControllerCssVarName = '--switch-controller-size'
@@ -46,6 +57,7 @@ const SwitchToggle: FC<InputHTMLAttributes<HTMLInputElement> &
       switchBtn.style.setProperty(switchControllerCssVarName, newSize) // set new size
     }
   }, [switchId, className])
+
   return (
     <label data-ui-switch-label aria-label={ariaLabel}>
       <input
@@ -66,15 +78,45 @@ const SwitchToggle: FC<InputHTMLAttributes<HTMLInputElement> &
           isRect ? 'rect' : '',
         )}
         {...props}
-      />
+      >
+        <SwitchContext.Provider value={{ state: switchState }}>
+          {children}
+        </SwitchContext.Provider>
+      </span>
     </label>
   )
+}
+
+const SwitchOn: FC<HTMLAttributes<HTMLDivElement>> = ({
+  children,
+  ...props
+}) => {
+  const { state } = useContext(SwitchContext)
+  return state === 'on' ? (
+    <div data-ui-switch-on {...props}>
+      {children}
+    </div>
+  ) : null
+}
+
+const SwitchOff: FC<HTMLAttributes<HTMLDivElement>> = ({
+  children,
+  ...props
+}) => {
+  const { state } = useContext(SwitchContext)
+  return state === 'off' ? (
+    <div data-ui-switch-off {...props}>
+      {children}
+    </div>
+  ) : null
 }
 
 // Switch
 interface IStaticComponents {
   Label: typeof Label
   Toggle: typeof SwitchToggle
+  On: typeof SwitchOn
+  Off: typeof SwitchOff
 }
 const Switch: FC<HTMLAttributes<HTMLDivElement>> & IStaticComponents = ({
   children,
@@ -88,5 +130,7 @@ const Switch: FC<HTMLAttributes<HTMLDivElement>> & IStaticComponents = ({
 }
 Switch.Label = Label
 Switch.Toggle = SwitchToggle
+Switch.On = SwitchOn
+Switch.Off = SwitchOff
 
 export { Switch }

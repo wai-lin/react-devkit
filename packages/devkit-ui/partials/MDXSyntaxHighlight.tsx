@@ -84,10 +84,7 @@ const WithMDXSyntaxHighlight = (props: any) => {
   return (
     <MDXProvider components={{ pre: Pre, code: Code }}>
       <main
-        className={clsx(
-          props.className,
-          router.pathname === '/' ? '' : 'prose dark:prose-white',
-        )}
+        className={clsx(props.className, 'prose-sm dark:prose-white')}
         {...props}
       >
         {props.children}

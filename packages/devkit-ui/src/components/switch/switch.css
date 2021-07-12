@@ -7,7 +7,7 @@
     --switch-controller-size: 1rem;
 
     @apply inline-block relative cursor-pointer select-none;
-    @apply bg-gray-300 rounded-full p-1 transition-all;
+    @apply bg-current rounded-full p-1 transition-all;
     @apply min-w-[50px] min-h-[18px];
     outline: 0;
 
@@ -35,6 +35,19 @@
     }
   }
 
+  [data-ui-switch-on],
+  [data-ui-switch-off] {
+    @apply absolute top-0 h-full w-1/2 flex items-stretch justify-center;
+  }
+
+  [data-ui-switch-on] {
+    @apply left-0;
+  }
+
+  [data-ui-switch-off] {
+    @apply right-0;
+  }
+
   [data-ui-switch-input] {
     /* visually hidden but still accessible */
     @apply appearance-none outline-none border-none focus:outline-none;
@@ -42,10 +55,6 @@
     @apply p-0 m-[-1px] h-[1px] w-[1px];
     clip: rect(0, 0, 0, 0);
     background-image: unset !important;
-
-    &:checked + [data-ui-switch-btn] {
-      @apply bg-current;
-    }
 
     &:checked + [data-ui-switch-btn]:after {
       left: calc(100% - var(--switch-controller-size));

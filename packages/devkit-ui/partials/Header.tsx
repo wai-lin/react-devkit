@@ -14,7 +14,7 @@ const Header: FC<HTMLAttributes<HTMLElement>> = () => {
       </Heading>
       <Switch>
         <Switch.Label className="text-white">
-          Theme: {appContext.theme === 'dark' ? '🌙' : '🌕'}
+          Theme: {appContext.theme === 'dark' ? 'dark' : 'light'}
         </Switch.Label>
         <Switch.Toggle
           checked={appContext.theme === 'dark'}
@@ -25,8 +25,13 @@ const Header: FC<HTMLAttributes<HTMLElement>> = () => {
               )
           }}
           focusStyle="ring-offset-gray-800"
-          className="text-indigo-400"
-        />
+          className={
+            appContext.theme === 'dark' ? 'text-indigo-800' : 'text-indigo-600'
+          }
+        >
+          <Switch.On className="pl-1 pt-[2px]">🌛</Switch.On>
+          <Switch.Off className="pl-1 pt-[2px]">🌞</Switch.Off>
+        </Switch.Toggle>
       </Switch>
     </header>
   )

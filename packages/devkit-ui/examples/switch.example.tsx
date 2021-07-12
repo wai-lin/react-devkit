@@ -26,17 +26,17 @@ const SwitchStyling = () => {
         <Switch.Toggle
           checked={isChecked}
           onChange={e => setIsChecked(e.target.checked)}
-          className="text-red-400"
+          className={isChecked ? 'text-red-400' : 'text-gray-300'}
         />
         <Switch.Toggle
           checked={isChecked}
           onChange={e => setIsChecked(e.target.checked)}
-          className="text-yellow-400"
+          className={isChecked ? 'text-yellow-400' : 'text-gray-300'}
         />
         <Switch.Toggle
           checked={isChecked}
           onChange={e => setIsChecked(e.target.checked)}
-          className="text-green-400"
+          className={isChecked ? 'text-green-400' : 'text-gray-300'}
           focusStyle={appContext.theme === 'dark' ? 'ring-offset-gray-800' : ''}
         />
         <Switch.Toggle
@@ -46,6 +46,15 @@ const SwitchStyling = () => {
           className="rounded text-blue-400"
           focusStyle={appContext.theme === 'dark' ? 'ring-offset-gray-800' : ''}
         />
+        <Switch.Toggle
+          checked={isChecked}
+          onChange={e => setIsChecked(e.target.checked)}
+          className="text-purple-400"
+          focusStyle={appContext.theme === 'dark' ? 'ring-offset-gray-800' : ''}
+        >
+          <Switch.On className="text-gray-800">on</Switch.On>
+          <Switch.Off className="text-gray-800">off</Switch.Off>
+        </Switch.Toggle>
       </div>
     </>
   )
@@ -61,7 +70,9 @@ const SwitchWithLabel = () => {
           if (appContext.setTheme)
             appContext.setTheme(appContext.theme === 'dark' ? 'light' : 'dark')
         }}
-        className="text-gray-600"
+        className={
+          appContext.theme === 'dark' ? 'text-gray-600' : 'text-gray-300'
+        }
         focusStyle={appContext.theme === 'dark' ? 'ring-offset-gray-800' : ''}
       />
       <Switch.Label>

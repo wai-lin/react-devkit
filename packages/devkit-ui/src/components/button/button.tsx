@@ -4,14 +4,15 @@ import { FC, HTMLAttributes } from 'react'
 interface IStaticComponents {
   Circle: typeof ButtonCircle
 }
-const Button: FC<HTMLAttributes<HTMLButtonElement>> & IStaticComponents = ({
-  children,
-  ...props
-}) => {
+interface IButtonProps {
+  disabled?: boolean
+}
+const Button: FC<HTMLAttributes<HTMLButtonElement> & IButtonProps> &
+  IStaticComponents = ({ children, ...props }) => {
   return <button {...props}>{children}</button>
 }
 
-const ButtonCircle: FC<HTMLAttributes<HTMLButtonElement>> = ({
+const ButtonCircle: FC<HTMLAttributes<HTMLButtonElement> & IButtonProps> = ({
   'aria-label': ariaLabel,
   className,
   ...props
@@ -19,7 +20,10 @@ const ButtonCircle: FC<HTMLAttributes<HTMLButtonElement>> = ({
   return (
     <Button
       aria-label={ariaLabel || ''}
-      className={clsx('p-0 rounded-full grid place-items-center', className)}
+      className={clsx(
+        'p-0 rounded-full grid place-items-center text-center',
+        className,
+      )}
       {...props}
     />
   )

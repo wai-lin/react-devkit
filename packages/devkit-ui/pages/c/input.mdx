@@ -5,293 +5,64 @@
 import ToC from 'partials/ToC'
 
 <ToC>
-  <a data-toc-to="scroll-to-checkbox">#Checkbox</a>
-  <ToC>
-    <a data-toc-to="scroll-to-checkbox--sample">#Sample</a>
-    <ToC>
-      <a data-toc-to="scroll-to-checkbox--sample-code">#Code</a>
-    </ToC>
-    <a data-toc-to="scroll-to-checkbox--styling">#Styling</a>
-    <ToC>
-      <a data-toc-to="scroll-to-checkbox--styling-code">#Code</a>
-    </ToC>
-  </ToC>
-  <a data-toc-to="scroll-to-radio">#Radio</a>
-  <ToC>
-    <a data-toc-to="scroll-to-radio--sample">#Sample</a>
-    <ToC>
-      <a data-toc-to="scroll-to-radio--sample-code">#Code</a>
-    </ToC>
-    <a data-toc-to="scroll-to-radio--group">#Group</a>
-    <ToC>
-      <a data-toc-to="scroll-to-radio--group-code">#Code</a>
-    </ToC>
-    <a data-toc-to="scroll-to-radio--styling">#Styling</a>
-    <ToC>
-      <a data-toc-to="scroll-to-radio--styling-code">#Code</a>
-    </ToC>
-  </ToC>
-  <a data-toc-to="scroll-to-switch">#Switch</a>
-  <ToC>
-    <a data-toc-to="scroll-to-switch--sample">#Sample</a>
-    <ToC>
-      <a data-toc-to="scroll-to-switch--sample-code">#Code</a>
-    </ToC>
-    <a data-toc-to="scroll-to-switch--styling">#Styling</a>
-    <ToC>
-      <a data-toc-to="scroll-to-switch--styling-code">#Code</a>
-    </ToC>
-    <a data-toc-to="scroll-to-switch--with-label">#With Label</a>
-    <ToC>
-      <a data-toc-to="scroll-to-switch--with-label-code">#Code</a>
-    </ToC>
-  </ToC>
+  <a data-toc-to="scroll-to-general-input">#General Input</a>
 </ToC>
 
 ---
 
-## #Checkbox
+## #General Input
 
-<a id="scroll-to-checkbox" />
+<a id="scroll-to-general-input" />
 
-### #Sample
+import { Input } from 'components/input/input'
 
-<a id="scroll-to-checkbox--sample" />
-
-import { CheckboxSample } from 'examples/checkbox'
-
-<CheckboxSample />
-<a id="scroll-to-checkbox--sample-code" />
-
-```tsx
-const [isChecked, setIsChecked] = useState(false)
-<Checkbox.Input id="checkbox-id" />
-<label htmlFor="checkbox-id">tick me</label>
-<Checkbox>
-  <Checkbox.Input
-    checked={isChecked}
-    onChange={e => setIsChecked(e.target.checked)}
-  />
-  <Checkbox.Label>is checked : {isChecked.toString()}</Checkbox.Label>
-</Checkbox>
-```
-
----
-
-### #Styling
-
-<a id="scroll-to-checkbox--styling" />
-
-import { CheckboxStyling } from 'examples/checkbox'
-
-<CheckboxStyling />
-<a id="scroll-to-checkbox--styling-code" />
-
-```tsx
-<Checkbox>
-  <Checkbox.Input className="text-red-400" />
-  <Checkbox.Label>red check</Checkbox.Label>
-</Checkbox>
-
-<Checkbox>
-  <Checkbox.Input className="text-yellow-400" />
-  <Checkbox.Label>yellow check</Checkbox.Label>
-</Checkbox>
-
-<Checkbox>
-  <Checkbox.Input className="text-green-400" />
-  <Checkbox.Label>green check</Checkbox.Label>
-</Checkbox>
-
-<Checkbox>
-  <Checkbox.Input className="rounded-full text-blue-400" />
-  <Checkbox.Label>circle check</Checkbox.Label>
-</Checkbox>
-```
-
----
-
-## #Radio
-
-<a id="scroll-to-radio" />
-
-### #Sample
-
-<a id="scroll-to-radio--sample" />
-
-import { RadioSample } from 'examples/radio'
-
-<RadioSample />
-<a id="scroll-to-radio--sample-code" />
-
-```tsx
-const [isSelected, setIsSelected] = useState(false)
-<Radio.Input id="radio-id" />
-<label htmlFor="radio-id">select me</label>
-<Radio>
-  <Radio.Input
-    checked={isSelected}
-    onChange={e => setIsSelected(e.target.checked)}
-  />
-  <Radio.Label>radio selected : {isSelected.toString()}</Radio.Label>
-</Radio>
-```
-
----
-
-### #Group
-
-<a id="scroll-to-radio--group" />
-
-import { RadioGrouping } from 'examples/radio'
-
-<RadioGrouping />
-<a id="scroll-to-radio--group-code" />
-
-```tsx
-const [selected, setSelected] = useState('')
-const options = ['HTML', 'CSS', 'JS']
-<p>selected option : {selected}</p>
-<Radio.Group>
-  {options.map(op => (
-    <Radio key={op}>
-      <Radio.Input
-        checked={selected === op}
-        value={op}
-        onChange={e => setSelected(e.target.value)}
-      />
-      <Radio.Label>{op}</Radio.Label>
-    </Radio>
-  ))}
-</Radio.Group>
-```
-
----
-
-### #Styling
-
-<a id="scroll-to-radio--styling" />
-
-import { RadioStyling } from 'examples/radio'
-
-<RadioStyling />
-<a id="scroll-to-radio--styling-code" />
-
-```tsx
-<Radio>
-  <Radio.Input className="text-red-400" />
-  <Radio.Label>red radio</Radio.Label>
-</Radio>
-
-<Radio>
-  <Radio.Input className="text-yellow-400" />
-  <Radio.Label>yellow radio</Radio.Label>
-</Radio>
-
-<Radio>
-  <Radio.Input className="text-green-400" />
-  <Radio.Label>green radio</Radio.Label>
-</Radio>
-
-<Radio>
-  <Radio.Input className="rounded text-blue-400" />
-  <Radio.Label>rounded radio</Radio.Label>
-</Radio>
-```
-
----
-
-# #Switch
-
-<a id="scroll-to-switch" />
-
-import { SwitchSample } from 'examples/switch'
-
-### #Sample
-
-<a id="scroll-to-switch--sample" />
-<SwitchSample />
-<a id="scroll-to-switch--sample-code" />
-
-```tsx
-const [isChecked, setIsChecked] = useState(false)
-<Switch.Toggle
-  checked={isChecked}
-  onChange={e => setIsChecked(e.target.checked)}
-  className="text-green-500"
-/>
-<p>isChecked : {isChecked.toString()}</p>
-```
-
----
-
-### #Styling
-
-<a id="scroll-to-switch--styling" />
-
-import { SwitchStyling } from 'examples/switch'
-
-<SwitchStyling />
-<a id="scroll-to-switch--styling-code" />
-
-```tsx
-const [isChecked, setIsChecked] = useState(false)
-const appContext = useContext(AppContext)
-<p className="m-0">isChecked: {isChecked.toString()}</p>
-<div className="flex items-center space-x-2">
-  <Switch.Toggle
-    checked={isChecked}
-    onChange={e => setIsChecked(e.target.checked)}
-    className="text-red-400"
-  />
-  <Switch.Toggle
-    checked={isChecked}
-    onChange={e => setIsChecked(e.target.checked)}
-    className="text-yellow-400"
-  />
-  <Switch.Toggle
-    checked={isChecked}
-    onChange={e => setIsChecked(e.target.checked)}
-    className="text-green-400"
-    focusStyle={appContext.theme === 'dark' ? 'ring-offset-gray-800' : ''}
-  />
-  <Switch.Toggle
-    isRect
-    checked={isChecked}
-    onChange={e => setIsChecked(e.target.checked)}
-    className="rounded text-blue-400"
-    focusStyle={appContext.theme === 'dark' ? 'ring-offset-gray-800' : ''}
-  />
+<div className="flex flex-col space-y-4 w-1/4">
+  <Input.TextField type="text" placeholder="type: text" />
+  <Input.TextField type="number" placeholder="type: number" />
 </div>
-```
-
----
-
-### #With Label
-
-<a id="scroll-to-switch--with-label" />
-
-import { SwitchWithLabel } from 'examples/switch'
-
-<SwitchWithLabel />
-<a id="scroll-to-switch--with-label-code" />
 
 ```tsx
-const appContext = useContext(AppContext)
-<Switch>
-  <Switch.Toggle
-    checked={appContext.theme === 'dark'}
-    onChange={() => {
-      if (appContext.setTheme)
-        appContext.setTheme(appContext.theme === 'dark' ? 'light' : 'dark')
-    }}
-    className="text-gray-600"
-    focusStyle={appContext.theme === 'dark' ? 'ring-offset-gray-800' : ''}
-  />
-  <Switch.Label>
-    {appContext.theme} : you can also click me to change theme
-  </Switch.Label>
-</Switch>
+<Input.TextField type="text" placeholder="type: text" />
+<Input.TextField type="number" placeholder="type: number" />
 ```
 
----
+### #API
+
+#### #Components
+
+```tsx
+<Input /> // wrapper component for use with `Input.Label`
+<Input.Label /> // html label component
+<Input.TextField /> // html input component
+<Input.Textarea /> // html textarea component
+```
+
+#### #Usage
+
+<Input>
+  <Input.Label>Email</Input.Label>
+  <Input.TextField type="email" placeholder="eg. example@mail.com" />
+</Input>
+<Input>
+  <Input.Label>Password</Input.Label>
+  <Input.TextField type="password" placeholder="secure password" />
+</Input>
+<Input>
+  <Input.Label>Feedback</Input.Label>
+  <Input.Textarea placeholder="positive feedback" />
+</Input>
+
+```tsx
+<Input>
+  <Input.Label>Email</Input.Label>
+  <Input.TextField type="email" placeholder="eg. example@mail.com" />
+</Input>
+<Input>
+  <Input.Label>Password</Input.Label>
+  <Input.TextField type="password" placeholder="secure password" />
+</Input>
+<Input>
+  <Input.Label>Feedback</Input.Label>
+  <Input.Textarea placeholder="positive feedback" />
+</Input>
+```

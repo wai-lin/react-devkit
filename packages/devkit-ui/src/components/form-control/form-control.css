@@ -1,7 +1,20 @@
 @layer base {
   [data-ui-form-control-switch],
   [data-ui-form-control-radio],
+  [data-ui-form-control-checkbox],
+  [data-ui-form-control-input],
+  [data-ui-form-control-tel-input] {
+    @apply my-4;
+  }
+
+  [data-ui-form-control-switch],
+  [data-ui-form-control-radio],
   [data-ui-form-control-checkbox] {
     @apply flex items-center space-x-2;
+  }
+
+  [data-ui-form-control-input],
+  [data-ui-form-control-tel-input] {
+    @apply flex flex-col space-y-2;
   }
 }

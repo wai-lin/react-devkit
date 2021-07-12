@@ -5,9 +5,16 @@ import { useRouter } from 'next/dist/client/router'
 import { Heading } from '../src/components/heading/heading'
 
 const components = [
-  { name: 'Element', path: '/element' },
+  { name: 'Button', path: '/button' },
+  { name: 'Checkbox', path: '/checkbox' },
+  { name: 'Form Control', path: '/form-control' },
+  { name: 'Heading', path: '/heading' },
   { name: 'Input', path: '/input' },
-  { name: 'Typography', path: '/typography' },
+  { name: 'Label', path: '/label' },
+  { name: 'Otp Input', path: '/otp-input' },
+  { name: 'Radio', path: '/radio' },
+  { name: 'Switch', path: '/switch' },
+  { name: 'Tel Input', path: '/tel-input' },
 ]
 
 const Navigation: FC<HTMLAttributes<HTMLElement>> = ({
@@ -20,7 +27,7 @@ const Navigation: FC<HTMLAttributes<HTMLElement>> = ({
       <nav
         className={clsx(
           className,
-          'pt-16 max-h-screen h-screen max-w-[20%] w-full',
+          'pt-16 max-h-screen h-screen max-w-[15%] w-full',
           'bg-gray-200 dark:bg-gray-700 border-r border-gray-300 dark:border-gray-600',
         )}
         {...props}

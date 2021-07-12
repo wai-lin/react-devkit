@@ -1,0 +1,41 @@
+# #Table of Contents
+
+import ToC from 'partials/ToC'
+
+<ToC>
+  <a data-toc-to="scroll-to-tel-input">#Tel Input</a>
+  <ToC>
+    <a data-toc-to="scroll-to-tel-input--sample">#Sample</a>
+    <ToC>
+      <a data-toc-to="scroll-to-tel-input--sample-code">#Code</a>
+    </ToC>
+  </ToC>
+</ToC>
+
+---
+
+# #Tel Input
+
+<a id="scroll-to-tel-input" />
+
+### #Sample
+
+<a id="scroll-to-tel-input--sample" />
+
+import { TelInputSample } from 'examples/tel-input.example'
+
+<TelInputSample />
+<a id="scroll-to-tel-input--sample-code" />
+
+```tsx
+const [phone, setPhone] = useState('')
+<TelInput>
+  <TelInput.Label>Enter phone number</TelInput.Label>
+  <TelInput.TextField
+    country="MM"
+    value={phone}
+    setValue={setPhone}
+    format="international"
+  />
+</TelInput>
+```

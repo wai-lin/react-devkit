@@ -1,0 +1,24 @@
+@layer base {
+  [data-ui-otp-group] {
+    @apply flex items-center space-x-4;
+  }
+
+  [data-ui-otp-input] {
+    @apply rounded w-10 h-10 text-center border focus:ring-1;
+
+    /**
+    * Remove default number controller buttons
+    */
+    /* Chrome, Safari, Edge, Opera */
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    &[type='number'] {
+      -moz-appearance: textfield;
+    }
+  }
+}

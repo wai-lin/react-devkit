@@ -1,0 +1,69 @@
+# #Table of Contents
+
+import ToC from 'partials/ToC'
+
+<ToC>
+  <a data-toc-to="scroll-to-otp-input">#Otp Input</a>
+  <ToC>
+    <a data-toc-to="scroll-to-otp-input--sample">#Sample</a>
+    <ToC>
+      <a data-toc-to="scroll-to-otp-input--sample-code">#Code</a>
+    </ToC>
+  </ToC>
+</ToC>
+
+---
+
+# #Otp Input
+
+<a id="scroll-to-otp-input" />
+
+### #Sample
+
+<a id="scroll-to-otp-input--sample" />
+
+import { OtpInputSample } from 'examples/otp-input.example'
+
+<OtpInputSample />
+<a id="scroll-to-radio--otp-input-code" />
+
+```tsx
+const [otp, setOtp] = useState('')
+<OtpInput.Group value={otp} setValue={setOtp}>
+  <OtpInput index={0} />
+  <OtpInput index={1} />
+  <OtpInput index={2} />
+  <OtpInput index={3} />
+</OtpInput.Group>
+<Button
+  onClick={() => setOtp('')}
+  className="bg-indigo-400 text-gray-700"
+>
+  Clear Otp
+</Button>
+```
+
+---
+
+### #API
+
+<a id="scroll-to-otp-input--api" />
+
+```tsx
+// wrapper component for `OtpInput`
+// provide otp functionaly context
+;<OtpInput.Group></OtpInput.Group>
+interface OtpGroupProps {
+  value: string // required
+  setValue: Dispatch<SetStateAction<string>> // required
+  acceptSpaceKey?: boolean // set `true` to accept space as value default  `false`
+  validator?: (value: string) => boolean // validator function to check each input, must return `true` | `false`
+}
+// Input component to use inside `Group`
+;<OtpInput />
+interface OtpInputProps {
+  index: number // required, `OtpInput` depends on this prop, must starts from `0`
+  disabled?: boolean // whether input is disabled or not
+  type?: 'text' | 'number' | 'password' // input type
+}
+```

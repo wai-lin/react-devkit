@@ -1,0 +1,111 @@
+# #Table of Contents
+
+import ToC from 'partials/ToC'
+
+<ToC>
+  <a data-toc-to="scroll-to-radio">#Radio</a>
+  <ToC>
+    <a data-toc-to="scroll-to-radio--sample">#Sample</a>
+    <ToC>
+      <a data-toc-to="scroll-to-radio--sample-code">#Code</a>
+    </ToC>
+    <a data-toc-to="scroll-to-radio--group">#Group</a>
+    <ToC>
+      <a data-toc-to="scroll-to-radio--group-code">#Code</a>
+    </ToC>
+    <a data-toc-to="scroll-to-radio--styling">#Styling</a>
+    <ToC>
+      <a data-toc-to="scroll-to-radio--styling-code">#Code</a>
+    </ToC>
+  </ToC>
+</ToC>
+
+---
+
+## #Radio
+
+<a id="scroll-to-radio" />
+
+### #Sample
+
+<a id="scroll-to-radio--sample" />
+
+import { RadioSample } from 'examples/radio.example'
+
+<RadioSample />
+<a id="scroll-to-radio--sample-code" />
+
+```tsx
+const [isSelected, setIsSelected] = useState(false)
+<Radio.Input id="radio-id" />
+<label htmlFor="radio-id">select me</label>
+<Radio>
+  <Radio.Input
+    checked={isSelected}
+    onChange={e => setIsSelected(e.target.checked)}
+  />
+  <Radio.Label>radio selected : {isSelected.toString()}</Radio.Label>
+</Radio>
+```
+
+---
+
+### #Group
+
+<a id="scroll-to-radio--group" />
+
+import { RadioGrouping } from 'examples/radio.example'
+
+<RadioGrouping />
+<a id="scroll-to-radio--group-code" />
+
+```tsx
+const [selected, setSelected] = useState('')
+const options = ['HTML', 'CSS', 'JS']
+<p>selected option : {selected}</p>
+<Radio.Group>
+  {options.map(op => (
+    <Radio key={op}>
+      <Radio.Input
+        checked={selected === op}
+        value={op}
+        onChange={e => setSelected(e.target.value)}
+      />
+      <Radio.Label>{op}</Radio.Label>
+    </Radio>
+  ))}
+</Radio.Group>
+```
+
+---
+
+### #Styling
+
+<a id="scroll-to-radio--styling" />
+
+import { RadioStyling } from 'examples/radio.example'
+
+<RadioStyling />
+<a id="scroll-to-radio--styling-code" />
+
+```tsx
+<Radio>
+  <Radio.Input className="text-red-400" />
+  <Radio.Label>red radio</Radio.Label>
+</Radio>
+
+<Radio>
+  <Radio.Input className="text-yellow-400" />
+  <Radio.Label>yellow radio</Radio.Label>
+</Radio>
+
+<Radio>
+  <Radio.Input className="text-green-400" />
+  <Radio.Label>green radio</Radio.Label>
+</Radio>
+
+<Radio>
+  <Radio.Input className="rounded text-blue-400" />
+  <Radio.Label>rounded radio</Radio.Label>
+</Radio>
+```
